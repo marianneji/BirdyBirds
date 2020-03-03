@@ -15,6 +15,7 @@
 		72596A58240E69C90052010F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72596A56240E69C90052010F /* Main.storyboard */; };
 		72596A5A240E69CC0052010F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72596A59240E69CC0052010F /* Assets.xcassets */; };
 		72596A5D240E69CC0052010F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72596A5B240E69CC0052010F /* LaunchScreen.storyboard */; };
+		72596A65240E6E490052010F /* BirdTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 72596A64240E6E490052010F /* BirdTileSet.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		72596A59240E69CC0052010F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72596A5C240E69CC0052010F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72596A5E240E69CC0052010F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72596A64240E6E490052010F /* BirdTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BirdTileSet.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +62,58 @@
 		72596A4B240E69C90052010F /* BirdyBirds */ = {
 			isa = PBXGroup;
 			children = (
-				72596A4C240E69C90052010F /* AppDelegate.swift */,
-				72596A4E240E69C90052010F /* GameScene.sks */,
+				72596A6A240E73220052010F /* Template */,
+				72596A68240E72D60052010F /* Scenes */,
 				72596A50240E69C90052010F /* Actions.sks */,
-				72596A52240E69C90052010F /* GameScene.swift */,
+				72596A66240E729F0052010F /* ViewController */,
+				72596A67240E72C90052010F /* UI */,
+				72596A5E240E69CC0052010F /* Info.plist */,
+				72596A69240E730A0052010F /* TileSets */,
+			);
+			path = BirdyBirds;
+			sourceTree = "<group>";
+		};
+		72596A66240E729F0052010F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
 				72596A54240E69C90052010F /* GameViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		72596A67240E72C90052010F /* UI */ = {
+			isa = PBXGroup;
+			children = (
 				72596A56240E69C90052010F /* Main.storyboard */,
 				72596A59240E69CC0052010F /* Assets.xcassets */,
 				72596A5B240E69CC0052010F /* LaunchScreen.storyboard */,
-				72596A5E240E69CC0052010F /* Info.plist */,
 			);
-			path = BirdyBirds;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		72596A68240E72D60052010F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				72596A4E240E69C90052010F /* GameScene.sks */,
+				72596A52240E69C90052010F /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		72596A69240E730A0052010F /* TileSets */ = {
+			isa = PBXGroup;
+			children = (
+				72596A64240E6E490052010F /* BirdTileSet.sks */,
+			);
+			path = TileSets;
+			sourceTree = "<group>";
+		};
+		72596A6A240E73220052010F /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				72596A4C240E69C90052010F /* AppDelegate.swift */,
+			);
+			path = Template;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72596A58240E69C90052010F /* Main.storyboard in Resources */,
+				72596A65240E6E490052010F /* BirdTileSet.sks in Resources */,
 				72596A4F240E69C90052010F /* GameScene.sks in Resources */,
 				72596A5A240E69CC0052010F /* Assets.xcassets in Resources */,
 				72596A5D240E69CC0052010F /* LaunchScreen.storyboard in Resources */,
@@ -224,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -295,6 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGGLL93M78;
 				INFOPLIST_FILE = BirdyBirds/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +358,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGGLL93M78;
 				INFOPLIST_FILE = BirdyBirds/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

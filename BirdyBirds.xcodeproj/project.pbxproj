@@ -62,12 +62,12 @@
 		72596A4B240E69C90052010F /* BirdyBirds */ = {
 			isa = PBXGroup;
 			children = (
+				72596A5E240E69CC0052010F /* Info.plist */,
 				72596A6A240E73220052010F /* Template */,
 				72596A68240E72D60052010F /* Scenes */,
 				72596A50240E69C90052010F /* Actions.sks */,
 				72596A66240E729F0052010F /* ViewController */,
 				72596A67240E72C90052010F /* UI */,
-				72596A5E240E69CC0052010F /* Info.plist */,
 				72596A69240E730A0052010F /* TileSets */,
 			);
 			path = BirdyBirds;

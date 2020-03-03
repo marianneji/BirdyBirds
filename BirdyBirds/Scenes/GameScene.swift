@@ -19,6 +19,9 @@ class GameScene: SKScene {
     private var mapNode = SKTileMapNode()
 
     private var maxScale: CGFloat = 0
+
+    private var bird = Bird(type: .red)
+    let anchor = SKNode()
     
     override func didMove(to view: SKView) {
         setupLevel()
@@ -31,6 +34,14 @@ class GameScene: SKScene {
             maxScale = mapNode.mapSize.width / frame.size.width
         }
         addCamera()
+        anchor.position = CGPoint(x: mapNode.frame.midX/2, y: mapNode.frame.midY/2)
+        addChild(anchor)
+        addBird()
+    }
+
+    func addBird() {
+        bird.position = anchor.position
+        addChild(bird)
     }
 
     func setupGestureRecognizers() {

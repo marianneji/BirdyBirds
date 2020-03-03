@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723D57AF240EB0BF002B5D60 /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723D57AE240EB0BF002B5D60 /* Blocks.swift */; };
 		72596A4D240E69C90052010F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72596A4C240E69C90052010F /* AppDelegate.swift */; };
 		72596A4F240E69C90052010F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 72596A4E240E69C90052010F /* GameScene.sks */; };
 		72596A51240E69C90052010F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 72596A50240E69C90052010F /* Actions.sks */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		723D57AE240EB0BF002B5D60 /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		72596A49240E69C90052010F /* BirdyBirds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdyBirds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72596A4C240E69C90052010F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72596A4E240E69C90052010F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 				72596A66240E729F0052010F /* ViewController */,
 				72596A67240E72C90052010F /* UI */,
 				72596A69240E730A0052010F /* TileSets */,
-				7299EBA0240E877000ED0012 /* Bird.swift */,
 			);
 			path = BirdyBirds;
 			sourceTree = "<group>";
@@ -129,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				7299EB9C240E76FB00ED0012 /* GameCamera.swift */,
+				7299EBA0240E877000ED0012 /* Bird.swift */,
+				723D57AE240EB0BF002B5D60 /* Blocks.swift */,
 			);
 			path = "Custom Nodes";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				72596A55240E69C90052010F /* GameViewController.swift in Sources */,
 				7299EB9D240E76FB00ED0012 /* GameCamera.swift in Sources */,
 				7299EBA1240E877000ED0012 /* Bird.swift in Sources */,
+				723D57AF240EB0BF002B5D60 /* Blocks.swift in Sources */,
 				72596A4D240E69C90052010F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

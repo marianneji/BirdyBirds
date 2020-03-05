@@ -30,7 +30,9 @@ class Blocks: SKSpriteNode {
         }
         damageThreshold = health / 2
 
-        super.init(texture: nil, color: .clear, size: CGSize.zero)
+        let texture = SKTexture(imageNamed: type.rawValue)
+
+        super.init(texture: texture, color: .clear, size: CGSize.zero)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,6 +44,17 @@ class Blocks: SKSpriteNode {
         physicsBody?.categoryBitMask = PhysicsCategories.block
         physicsBody?.contactTestBitMask = PhysicsCategories.all
         physicsBody?.collisionBitMask = PhysicsCategories.all
+    }
+
+    func impact(with force: Int) {
+        health -= force
+        print(health)
+        if health < 1 {
+            removeFromParent()
+        } else if health < damageThreshold {
+            let brokenTexture = SKTexture(imageNamed: type.rawValue + "Broken")
+            texture = brokenTexture
+        }
     }
 
 }

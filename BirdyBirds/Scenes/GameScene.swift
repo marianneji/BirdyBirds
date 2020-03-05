@@ -15,6 +15,8 @@ enum RoundState {
 
 class GameScene: SKScene {
 
+    var sceneManagerDelegate: SceneManagerDelegate?
+
     private let gameCamera = GameCamera()
 
     private var panRecognizer = UIPanGestureRecognizer()
@@ -25,18 +27,24 @@ class GameScene: SKScene {
     private var maxScale: CGFloat = 0
 
     private var bird = Bird(type: .red)
-    private var birds = [
-        Bird(type: .red),
-        Bird(type: .blue),
-        Bird(type: .yellow),
-        Bird(type: .gray)
-    ]
+    private var birds = [Bird]()
+    var level: Int?
 
     let anchor = SKNode()
     
     override func didMove(to view: SKView) {
 
         physicsWorld.contactDelegate = self
+
+        guard let level = level else {
+            return
+        }
+        guard let levelData = LevelData(level) else { return }
+        for birdColor in levelData.birds {
+            if let newBirdType = BirdType(rawValue: birdColor) {
+                birds.append(Bird(type: newBirdType))
+            }
+        }
         setupLevel()
         setupGestureRecognizers()
     }
@@ -225,8 +233,10 @@ extension GameScene: SKPhysicsContactDelegate {
         case PhysicsCategories.bird | PhysicsCategories.block, PhysicsCategories.block | PhysicsCategories.edge:
             if let block = contact.bodyB.node as? Blocks {
                 block.impact(with: Int(contact.collisionImpulse))
+                bird.animateFlight(active: false)
             } else if let block = contact.bodyA.node as? Blocks {
                 block.impact(with: Int(contact.collisionImpulse))
+                bird.animateFlight(active: false)
             }
         case PhysicsCategories.block | PhysicsCategories.block:
             if let block = contact.bodyB.node as? Blocks {
@@ -238,6 +248,7 @@ extension GameScene: SKPhysicsContactDelegate {
 
         case PhysicsCategories.bird | PhysicsCategories.edge:
             bird.flying = false
+            bird.animateFlight(active: false)
         default:
             break
         }

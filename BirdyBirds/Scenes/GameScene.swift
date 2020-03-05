@@ -35,6 +35,8 @@ class GameScene: SKScene {
     let anchor = SKNode()
     
     override func didMove(to view: SKView) {
+
+        physicsWorld.contactDelegate = self
         setupLevel()
         setupGestureRecognizers()
     }
@@ -105,11 +107,11 @@ class GameScene: SKScene {
                 let block = Blocks(type: type)
                 block.size = child.size
                 block.position = child.position
-                block.color = .brown
+                block.zRotation = child.zRotation
                 block.zPosition = ZPosition.obstacles
                 block.createPhysicsBody()
                 mapNode.addChild(block)
-                child.color = .clear
+                child.removeFromParent()
             }
         }
         let ground = mapNode.frame.size.height - mapNode.tileSize.height
@@ -139,6 +141,7 @@ class GameScene: SKScene {
         bird.physicsBody?.isDynamic = false
         bird.position = anchor.position
         addChild(bird)
+        bird.aspectScale(to: mapNode.tileSize, width: false, multiplier: 1)
         constraintToAnchor(active: true)
     }
 
@@ -210,6 +213,33 @@ extension GameScene {
                 sender.scale = 1
                 gameCamera.setConstraints(with: self, and: mapNode.frame, to: nil)
             }
+        }
+    }
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let mask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+
+        switch mask {
+        case PhysicsCategories.bird | PhysicsCategories.block, PhysicsCategories.block | PhysicsCategories.edge:
+            if let block = contact.bodyB.node as? Blocks {
+                block.impact(with: Int(contact.collisionImpulse))
+            } else if let block = contact.bodyA.node as? Blocks {
+                block.impact(with: Int(contact.collisionImpulse))
+            }
+        case PhysicsCategories.block | PhysicsCategories.block:
+            if let block = contact.bodyB.node as? Blocks {
+                block.impact(with: Int(contact.collisionImpulse))
+            }
+            if let block = contact.bodyA.node as? Blocks {
+                block.impact(with: Int(contact.collisionImpulse))
+            }
+
+        case PhysicsCategories.bird | PhysicsCategories.edge:
+            bird.flying = false
+        default:
+            break
         }
     }
 }
